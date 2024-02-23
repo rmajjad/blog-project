@@ -1,16 +1,10 @@
-import { Op } from "sequelize";
 import blogModel from "../../../DB/model/blog.model.js";
 import userModel from "../../../DB/model/user.model.js";
 
 export const getUsers = async (req, res) => {
     try {
         const users = await userModel.findAll({
-            include:blogModel,
-            where:{
-                age:{
-                    [Op.lt] : 30,
-                }
-            }
+            include:blogModel
         });
         return res.json({ massege: "success", users });
     } catch (error) {
