@@ -3,7 +3,7 @@ import userModel from "../../../DB/model/user.model.js";
 
 export const getUsers = async (req, res) => {
     try {
-        const users = await userModel.findAll({include:blogModel});
+        const users = await userModel.findAll({include:blogModel}); 
         return res.json({ massege: "success", users });
     } catch (error) {
         console.log(`the error is: ${error.message}`);
